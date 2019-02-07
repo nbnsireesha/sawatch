@@ -11,6 +11,8 @@ class Signup extends Component {
 		this.state = {
 			username: '',
 			password: '',
+			department: '',
+			secretCode: '',
 			confirmPassword: '',
 			redirectTo: null
 
@@ -29,14 +31,16 @@ class Signup extends Component {
 		console.log(this.state.username)
 		
 
-		//request to server to add a new username/password
+		//request to server to add a new username/password/department/secretCode
 		axios.post('/user/', {
 			username: this.state.username,
-			password: this.state.password
+			password: this.state.password,
+			department: this.state.department,
+			secretCode: this.state.secretCode
 		})
 			.then(response => {
 				console.log(response)
-				if (!response.data.errmsg) {
+				if (!response.data.errmsg && this.state.secretCode === 'KDICowsANDmilk') {
 					console.log('successful signup')
 					this.setState({ //redirect to login page
 						redirectTo: '/login'
@@ -75,6 +79,21 @@ render() {
 								value={this.state.password}
 								onChange={this.handleChange}
 							/>
+
+							<Input 
+								placeholder="Department"
+								name="department"
+								value={this.state.department}
+								onChange={this.handleChange}
+							/>
+
+							<Input 
+								placeholder="Secret Code"
+								name="secretCode"
+								value={this.state.secretCode}
+								onChange={this.handleChange}
+							/>
+
 							<FormBtn
 								onClick={this.handleSubmit}
 								type="submit"
