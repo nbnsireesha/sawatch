@@ -14,6 +14,7 @@ class Signup extends Component {
 			department: '',
 			secretCode: '',
 			confirmPassword: '',
+			userCode: '',
 			redirectTo: null
 
 		}
@@ -36,7 +37,8 @@ class Signup extends Component {
 			username: this.state.username,
 			password: this.state.password,
 			department: this.state.department,
-			secretCode: this.state.secretCode
+			secretCode: this.state.secretCode,
+			userCode: this.state.password
 		})
 			.then(response => {
 				console.log(response)

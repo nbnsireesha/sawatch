@@ -21,7 +21,8 @@ router.post('/', (req, res) => {
                 username: username,
                 password: password,
                 department: department,
-                secretCode: secretCode
+                secretCode: secretCode,
+                userCode: password,
             })
             newUser.save((err, savedUser) => {
                 if (err) return res.json(err)

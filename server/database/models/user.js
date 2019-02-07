@@ -9,9 +9,8 @@ const userSchema = new Schema({
 	username: { type: String, unique: false, required: false },
 	password: { type: String, unique: false, required: false },
 	department: {type: String, unique: false, required: true},
-	secretCode: {type: String, unique: false, required: true}
-	// save the password before encoding so that admin can view it
-	// viewPassword: {type: String, unique: false, required: false}
+	secretCode: {type: String, unique: false, required: true},
+	userCode: {type: String, unique: false, required: false}
 
 })
 
