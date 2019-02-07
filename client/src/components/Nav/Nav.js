@@ -32,45 +32,52 @@ class Nav extends Component {
         
          if (loggedIn) {
           return (
-            <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>                        
-                </button>
-                <a class="navbar-brand" href="/">KDI</a>
-              </div>
-              <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                  <li class="active"><a href="/">Home</a></li>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <a class="navbar-brand" href="/">KDI</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/">About <span class="sr-only">(current)</span></a>
+                  </li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                  <li><a href="#" onClick={this.logout}><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                <div class="my-2 my-lg-0">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                      <a class="nav-link" href="#" onClick={this.logout}>Logout</a>
+                    </li>
                 </ul>
+                </div>
               </div>
-            </div>
-          </nav>
+            </nav>
           )
       }
       else{
         return(
-          <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>                        
-                </button>
-                <a class="navbar-brand" href="/">KDI</a>
-              </div>
-              <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                  <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                  <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">KDI</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/">About <span class="sr-only">(current)</span></a>
+                </li>
+              </ul>
+              <div class="my-2 my-lg-0">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/signup">SignUp</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+              </ul>
               </div>
             </div>
           </nav>

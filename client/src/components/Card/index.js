@@ -1,3 +1,1 @@
-export * from "./Card";
-export * from "./CardHeader";
-export * from "./CardBody";
+export { default } from "./Card";
