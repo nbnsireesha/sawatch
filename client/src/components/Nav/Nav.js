@@ -6,6 +6,9 @@ import axios from 'axios'
 class Nav extends Component {
     constructor() {
         super()
+        this.state = {
+          redirectTo: null
+        }
         this.logout = this.logout.bind(this)
     }
 
@@ -19,6 +22,9 @@ class Nav extends Component {
               loggedIn: false,
               username: null
             })
+            this.setState({
+              redirectTo: '/'
+            })
           }
         }).catch(error => {
             console.log('Logout error')
@@ -29,10 +35,12 @@ class Nav extends Component {
         const loggedIn = this.props.loggedIn;
         console.log('navbar render, props: ')
         console.log(this.props);
-        
-         if (loggedIn) {
+        if (this.state.redirectTo) {
+          return <Redirect to={{ pathname: this.state.redirectTo }} />
+        }
+         else if (loggedIn) {
           return (
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
               <a class="navbar-brand" href="/">KDI</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -57,7 +65,7 @@ class Nav extends Component {
       }
       else{
         return(
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="/">KDI</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>

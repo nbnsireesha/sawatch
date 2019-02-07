@@ -41,10 +41,21 @@ class LoginForm extends Component {
                         loggedIn: true,
                         username: response.data.username
                     })
-                    // update the state to redirect to home
-                    this.setState({
-                        redirectTo: '/'
-                    })
+                    // if userbelong to quality redirect to /quality
+                    if(response.data.department == 'quality'){
+                        this.setState({
+                            redirectTo: '/quality'
+                        })
+                    }
+                    else{
+                        this.setState({
+                            redirectTo:'/'
+                        })
+                    }
+                    // // update the state to redirect to home
+                    // this.setState({
+                    //     redirectTo: '/'
+                    // })
                 }
             }).catch(error => {
                 console.log('login error: ')

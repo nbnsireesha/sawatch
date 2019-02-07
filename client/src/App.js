@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import axios from 'axios'
-import { Route, Link } from 'react-router-dom'
+import axios from 'axios';
+import { Route, Link } from 'react-router-dom';
 // components
-import Signup from './components/SignUpForm'
+import Signup from './components/SignUpForm';
 import LoginForm from './components/LoginForm/Login';
-import Navbar from './components/Nav'
-import Home from './pages/Home'
+import Navbar from './components/Nav';
+import Home from './pages/Home';
+import Quality from './pages/Quality';
 
 class App extends Component {
   constructor() {
@@ -65,6 +66,7 @@ class App extends Component {
         <Route exact path="/" component={Home} />
         <Route path="/login" render={() => <LoginForm updateUser={this.updateUser} />} />
         <Route path="/signup" render={() => <Signup/>} />
+        <Route path="/quality" render={() => <Quality username={this.state.username}/>} />
 
       </div>
     );
