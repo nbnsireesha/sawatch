@@ -4,7 +4,7 @@ import axios from 'axios'
 import { Col, Row, Container } from "../Grid";
 import { Input, FormBtn } from "../Form";
 import Card from "../Card";
-class LoginForm extends Component {
+class Login extends Component {
     constructor() {
         super()
         this.state = {
@@ -33,6 +33,7 @@ class LoginForm extends Component {
                 password: this.state.password
             })
             .then(response => {
+
                 console.log('login response: ')
                 console.log(response)
                 if (response.status === 200) {
@@ -42,15 +43,21 @@ class LoginForm extends Component {
                         username: response.data.username
                     })
                     // if userbelong to quality redirect to /quality
-                    if(response.data.department == 'quality'){
+                    if(response.data.department === 'quality'){
                         this.setState({
                             redirectTo: '/quality'
                         })
                     }
+                    else if(response.data.department === 'lab'){
+                        this.setState({
+                            redirectTo:'/lab'
+                        })
+                    }
                     else{
                         this.setState({
-                            redirectTo:'/'
+                            redirectTo: '/'
                         })
+
                     }
                     // // update the state to redirect to home
                     // this.setState({
@@ -103,4 +110,4 @@ class LoginForm extends Component {
     }
 }
 
-export default LoginForm
+export default Login

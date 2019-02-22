@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Col, Row, Container } from "../../components/Grid";
 import Card from "../../components/Card";
 
-class Quality extends Component {
+class Lab extends Component {
     
     render() {
         
@@ -11,7 +11,7 @@ class Quality extends Component {
                     <Row>
                         <Col size="md-12">
                             <Card title="Quality">
-                                <h3> {this.props.username} : Quality Department</h3>
+                                <h3> {this.props.username} : Lab Department</h3>
                             </Card>
                         </Col>
                     </Row>
@@ -20,4 +20,4 @@ class Quality extends Component {
     }
 }
 
-export default Quality;
+export default Lab;

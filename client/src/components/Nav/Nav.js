@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-import { Route, Link } from 'react-router-dom'
 import axios from 'axios'
 
 class Nav extends Component {
@@ -22,13 +21,16 @@ class Nav extends Component {
               loggedIn: false,
               username: null
             })
+            window.location = "http://localhost:3000/login";
             this.setState({
-              redirectTo: '/'
+              redirectTo: '/login'
             })
+            console.log("*********props in Nav logout ************", this.props);
           }
         }).catch(error => {
             console.log('Logout error')
         })
+        
       }
 
     render() {
@@ -40,22 +42,22 @@ class Nav extends Component {
         }
          else if (loggedIn) {
           return (
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-              <a class="navbar-brand" href="/">KDI</a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+              <a className="navbar-brand" href="/">KDI</a>
+              <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
               </button>
 
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="/">About <span class="sr-only">(current)</span></a>
+              <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav mr-auto">
+                  <li className="nav-item active">
+                    <a className="nav-link" href="/">About <span class="sr-only">(current)</span></a>
                   </li>
                 </ul>
-                <div class="my-2 my-lg-0">
-                  <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                      <a class="nav-link" href="#" onClick={this.logout}>Logout</a>
+                <div className="my-2 my-lg-0">
+                  <ul className="navbar-nav mr-auto">
+                    <li className="nav-item">
+                      <a className="nav-link" href="/login" onClick={this.logout}>Logout</a>
                     </li>
                 </ul>
                 </div>
@@ -65,25 +67,25 @@ class Nav extends Component {
       }
       else{
         return(
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="/">KDI</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+          <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a className="navbar-brand" href="/">KDI</a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="/">About <span class="sr-only">(current)</span></a>
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul className="navbar-nav mr-auto">
+                <li className="nav-item active">
+                  <a className="nav-link" href="/">About <span class="sr-only">(current)</span></a>
                 </li>
               </ul>
-              <div class="my-2 my-lg-0">
-                <ul class="navbar-nav mr-auto">
-                  <li class="nav-item">
-                    <a class="nav-link" href="/signup">SignUp</a>
+              <div className="my-2 my-lg-0">
+                <ul className="navbar-nav mr-auto">
+                  <li className="nav-item">
+                    <a className="nav-link" href="/signup">SignUp</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
+                  <li className="nav-item">
+                    <a className="nav-link" href="/login">Login</a>
                 </li>
               </ul>
               </div>

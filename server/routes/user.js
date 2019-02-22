@@ -40,6 +40,7 @@ router.post(
         next()
     },
     passport.authenticate('local'),
+
     (req, res) => {
         console.log('logged in', req.user);
         var userInfo = {
@@ -52,12 +53,28 @@ router.post(
 
 router.get('/', (req, res, next) => {
     console.log('===== user!!======')
-    console.log(req.user)
-    if (req.user) {
-        res.json({ user: req.user })
-    } else {
-        res.json({ user: null })
-    }
+    console.log(req.user);
+    var newUser;
+    
+    User.findOne({ username: req.user.username }, (err, user) => {
+        if (err) {
+            console.log('User.js get error: ', err)
+        } 
+        else {
+            console.log("user info * dep: ", user.department);
+              const userInfo = {
+                 username: user.username,
+                 department: user.department
+             }
+             console.log("new user *** : ", userInfo);
+             if (req.user) {
+                 res.json({ user: userInfo })
+             } else {
+                 res.json({ user: null })
+             }
+
+        }
+    })
 })
 
 router.post('/logout', (req, res) => {
